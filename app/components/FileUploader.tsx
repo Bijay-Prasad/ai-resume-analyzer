@@ -53,8 +53,6 @@ const FileUploader = ({ onFileSelect }: FileUploaderProps) => {
               <button
                 className="p-2 cursor-pointer"
                 onClick={(e) => {
-                  console.log("Remove file");
-                  console.log(onFileSelect)
                   onFileSelect?.(null);
                 }}
               >
