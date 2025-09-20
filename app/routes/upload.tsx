@@ -39,6 +39,7 @@ const Upload = () => {
 
     setStatusText("Converting to image...");
     const imageFile = await convertPdfToImage(file);
+    console.log(imageFile);
     if (!imageFile.file)
       return setStatusText("Error: Failed to convert PDF to image");
 
@@ -76,7 +77,7 @@ const Upload = () => {
     await kv.set(`resume:${uuid}`, JSON.stringify(data));
     setStatusText("Analysis complete, redirecting...");
     console.log(data);
-    navigate(`/resume/${uuid}`);
+    // navigate(`/resume/${uuid}`);
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -91,8 +92,8 @@ const Upload = () => {
 
     if (!file) return;
 
-    // handleAnalyze({ companyName, jobTitle, jobDescription, file });
-    console.log({ companyName, jobTitle, jobDescription, file });
+    handleAnalyze({ companyName, jobTitle, jobDescription, file });
+    // console.log({ companyName, jobTitle, jobDescription, file });
   };
 
   return (
